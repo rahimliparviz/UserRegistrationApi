@@ -1,4 +1,5 @@
-﻿using EventBus.Messages.Events;
+﻿using EventBus.Messages.Constants;
+using EventBus.Messages.Events;
 using MassTransit;
 using System;
 using System.Threading;
@@ -16,7 +17,7 @@ namespace Consumer
             var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
                 cfg.Host("amqp://guest:guest@localhost:5672");
-                cfg.ReceiveEndpoint("event-listener", e =>
+                cfg.ReceiveEndpoint(EventBusContstants.UserRegistrationQueue, e =>
                 {
                     e.Consumer<EventConsumer>();
                 });

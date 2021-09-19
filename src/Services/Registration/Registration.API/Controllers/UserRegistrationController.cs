@@ -14,12 +14,10 @@ namespace Registration.API.Controllers
     public class UserRegistrationController : ControllerBase
     {
       
-        private readonly ILogger<UserRegistrationController> _logger;
         private readonly IUserRegistrationRepository _userRegistrationRepository;
 
-        public UserRegistrationController(ILogger<UserRegistrationController> logger,IUserRegistrationRepository userRegistrationRepository)
+        public UserRegistrationController(IUserRegistrationRepository userRegistrationRepository)
         {
-            _logger = logger;
             _userRegistrationRepository = userRegistrationRepository;
         }
 
